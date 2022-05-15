@@ -20,5 +20,29 @@
     <h2>加算された値</h2>
     <p>{{ calculated_value }}</p>
 
+    <h2>集計された値</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>顧客名</th>
+                <th>受注日</th>
+                <th>アイテム名</th>
+                <th>単価</th>
+                <th>量</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in aggregated_value %}
+                <tr>
+                    <td>{{ row.customer_name }}</td>
+                    <td>{{ row.order_date|date('Y/m/d') }}</td>
+                    <td>{{ row.item_name }}</td>
+                    <td>{{ row.item_price }}</td>
+                    <td>{{ row.item_amount }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
 </div>
 {% endblock %}
